@@ -1,0 +1,766 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Testing,Another Tag," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="一. iTerm2与TerminaliTerm2与Terminal都是mac os系统下的应用软件，用来运行shell这个程序。Termnial是系统自带的，iTerm2需要下载。iTerm与Terminal相比功能更强大。
+例如
+iTerm的选中的复制功能。在iTerm下选中了某一段内容，可以直接在目标区域cmd＋v粘贴。而Terminal需要在选中后执行cmd＋c或者右键复制
+iTerm下可以">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iTerm2 vim zshell 配置">
+<meta property="og:url" content="http://yoursite.com/2016/08/18/iterm.vim.zsh/index.html">
+<meta property="og:site_name" content="申宝勇 的博客">
+<meta property="og:description" content="一. iTerm2与TerminaliTerm2与Terminal都是mac os系统下的应用软件，用来运行shell这个程序。Termnial是系统自带的，iTerm2需要下载。iTerm与Terminal相比功能更强大。
+例如
+iTerm的选中的复制功能。在iTerm下选中了某一段内容，可以直接在目标区域cmd＋v粘贴。而Terminal需要在选中后执行cmd＋c或者右键复制
+iTerm下可以">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2745695-95ecef2a21d0e6ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2745695-65f55d6a2dc4bb21.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2745695-de8fd006b5d982ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2745695-a217cdd478226876.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2745695-69ff6c987ce16dd2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2745695-64b791e8f91a9724.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2745695-a3165518f942a063.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2745695-fff8ad7fe296f214.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="http://upload-images.jianshu.io/upload_images/2745695-2097aba528a83ae0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2016-08-18T05:05:29.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iTerm2 vim zshell 配置">
+<meta name="twitter:description" content="一. iTerm2与TerminaliTerm2与Terminal都是mac os系统下的应用软件，用来运行shell这个程序。Termnial是系统自带的，iTerm2需要下载。iTerm与Terminal相比功能更强大。
+例如
+iTerm的选中的复制功能。在iTerm下选中了某一段内容，可以直接在目标区域cmd＋v粘贴。而Terminal需要在选中后执行cmd＋c或者右键复制
+iTerm下可以">
+<meta name="twitter:image" content="http://upload-images.jianshu.io/upload_images/2745695-95ecef2a21d0e6ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/18/iterm.vim.zsh/"/>
+
+  <title> iTerm2 vim zshell 配置 | 申宝勇 的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "//hm.baidu.com/hm.js?7303ae3eef4b53aec6c93826b022c6b8";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">申宝勇 的博客</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle"></p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="st-search-show-outputs">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <form class="site-search-form">
+  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
+</form>
+
+<script type="text/javascript">
+  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
+    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
+    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
+  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
+
+  _st('install', 'rDMrzszZYezk8ecxx-AY','2.0.0');
+</script>
+
+
+
+    </div>
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iTerm2 vim zshell 配置
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-18T13:05:29+08:00" content="2016-08-18">
+              2016-08-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/Testing/" itemprop="url" rel="index">
+                    <span itemprop="name">Testing</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                &nbsp; | &nbsp;
+                <a href="/2016/08/18/iterm.vim.zsh/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/18/iterm.vim.zsh/" itemprop="commentsCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一-iTerm2与Terminal"><a href="#一-iTerm2与Terminal" class="headerlink" title="一. iTerm2与Terminal"></a>一. iTerm2与Terminal</h2><p>iTerm2与Terminal都是mac os系统下的应用软件，用来运行shell这个程序。<br><img src="http://upload-images.jianshu.io/upload_images/2745695-95ecef2a21d0e6ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="terminal.png"><br><img src="http://upload-images.jianshu.io/upload_images/2745695-65f55d6a2dc4bb21.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="iterm.png"><br>Termnial是系统自带的，iTerm2需要下载。iTerm与Terminal相比功能更强大。</p>
+<h4 id="例如"><a href="#例如" class="headerlink" title="例如"></a>例如</h4><ul>
+<li>iTerm的选中的复制功能。在iTerm下选中了某一段内容，可以直接在目标区域cmd＋v粘贴。而Terminal需要在选中后执行cmd＋c或者右键复制</li>
+<li>iTerm下可以利用cmd键＋鼠标左键打开文件, 文件夹, 网址。<br>如下图，如果在屏幕上有url或者当前目录下的文件名，目录名，此时按住cmd键，鼠标移动到相应的url上，文件名上，或者目录名上，点击鼠标左键，计算机就会用默认的程序(浏览器，文本编辑器，Finder等）打开相应内容。</li>
+</ul>
+<p><img src="http://upload-images.jianshu.io/upload_images/2745695-de8fd006b5d982ff.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pic1.png"><br><img src="http://upload-images.jianshu.io/upload_images/2745695-a217cdd478226876.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pic2.png"></p>
+<h5 id="下载方式"><a href="#下载方式" class="headerlink" title="下载方式"></a>下载方式</h5><p>前往<a href="http://www.iterm2.com/" target="_blank" rel="external">iTerm2官网</a>, 然后点击那个醒目的downLoad按钮，双击下载好的.dmg“安装包”即可</p>
+<h5 id="给iTerm2配色"><a href="#给iTerm2配色" class="headerlink" title="给iTerm2配色"></a>给iTerm2配色</h5><p>iTerm2的默认颜色看着不舒服, 我们给它配置另一种颜色solarized</p>
+<blockquote>
+<p>solarized是一款配色方案,可以给Windowd, Mac os, Linux 下的多种终端，编辑器配置颜色。solarized官网<a href="http://ethanschoonover.com/solarized" target="_blank" rel="external">http://ethanschoonover.com/solarized</a></p>
+</blockquote>
+<p>打开官网–&gt;找到download部分，点击下载，下载的是一个.zip压缩包文件</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/2745695-69ff6c987ce16dd2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="download－solarized.png"><br>解压缩–&gt;打开solarized文件夹–&gt;打开iterm2-colors-solarized文件夹–&gt;分别双击Solarized Dark.itermcolors和Solarized Light.itermcolors文件，即可导入<br><img src="http://upload-images.jianshu.io/upload_images/2745695-64b791e8f91a9724.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="solarized.png"><br>iTerm2–&gt;prefrence-&gt;profile–&gt;color–&gt;color presets… –&gt;选中我们刚才倒入的solarized Dark 或 solarized Light–&gt;这样iTerm2 的颜色就改过来了。<br><img src="http://upload-images.jianshu.io/upload_images/2745695-a3165518f942a063.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="
+![pic4.png](http://upload-images.jianshu.io/upload_images/2745695-863f9bf8b39d2191.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)"></p>
+<h2 id="二-zshell与其它shell"><a href="#二-zshell与其它shell" class="headerlink" title="二. zshell与其它shell"></a>二. zshell与其它shell</h2><p>####shell是什么<br>shell是一个程序，是一个命令解析器，用来方便用户使用操作系统。它接收用户的输入，将接收的输入解析成命令，如果命令不能执行，就向用户输出一条错误提示消息，并继续接收输入，如果能执行，就暂停自己，执行用户的命令，用户命令结束后，则继续执行自己（即等待用户输入吓一跳命令）。。直到执行了退出命令。</p>
+<p>####有哪些shell</p>
+<h6 id="1-执行cat-etc-shells-命令，列出系统支持的shell种类"><a href="#1-执行cat-etc-shells-命令，列出系统支持的shell种类" class="headerlink" title="1. 执行cat /etc/shells  命令，列出系统支持的shell种类"></a>1. 执行cat /etc/shells  命令，列出系统支持的shell种类</h6><pre><code>#cat /etc/shells               注意‘＃’号是命令提示符
+/bin/bash
+/bin/csh
+/bin/ksh
+/bin/sh
+/bin/tcsh
+/bin/zsh
+</code></pre><h6 id="2-执行echo-SHELL-命令，列出系统当前使用的shell"><a href="#2-执行echo-SHELL-命令，列出系统当前使用的shell" class="headerlink" title="2. 执行echo $SHELL 命令，列出系统当前使用的shell"></a>2. 执行echo $SHELL 命令，列出系统当前使用的shell</h6><pre><code>#echo $SHELL
+/bin/zsh            可见，我目前使用的是zsh
+</code></pre><h6 id="3-执行chsh命令更改shell"><a href="#3-执行chsh命令更改shell" class="headerlink" title="3. 执行chsh命令更改shell"></a>3. 执行chsh命令更改shell</h6><pre><code>#chsh -s /bin/bash   切换至bash这个shell
+此时输入你的密码
+注意：命令执行完毕，需要重新打开iTerm2窗口
+在新窗口中执行**echo $SHELL**命令，可以看到shell已经变成了/bin/bash
+</code></pre><p>zshell比其他shell功能更强大<br>在刚刚安装好iTerm2后，默认使用的是bash shell，所以通过执行chsh命令切换到zshell</p>
+<h6 id="4-zshell优点举例"><a href="#4-zshell优点举例" class="headerlink" title="4.zshell优点举例"></a>4.zshell优点举例</h6><ul>
+<li>在bash下使用上下方向键翻看你执行的历史命令，只能按照时间顺序一条一条地翻看。在zshell下输入命令的前面任意几个字符，按“上方向键”，你将会看到你曾经执行过的以你刚输入的字符为前缀的命令。尤其当你需要执行一个曾经执行过但是很长的命令时很方便</li>
+</ul>
+<h6 id="5-配置zshell"><a href="#5-配置zshell" class="headerlink" title="5.配置zshell"></a>5.配置zshell</h6><p><a href="https://github.com/robbyrussell/oh-my-zsh" target="_blank" rel="external">oh-my-zsh</a>是国外一个程序员编写的一个项目（在Github上），利用它可以非常方便的配置zshell.</p>
+<pre><code>git clone git://github.com/robbyrussell/oh-my-zsh.git ~/.oh-my-zsh
+将oh-my-zsh整个项目(实际上就是一个文件夹)拷贝到本机上, 放在用户根目录下的.oh-my-zsh文件夹下。
+cp ~/.oh-my-zsh/templates/zshrc.zsh-template ~/.zshrc
+把预先编写好的配置文件拷贝到 .zshrc文件里
+</code></pre><p>经过这几步就算配置好了，此外我们还需要挑一个自己喜欢的主题配置上。<br>打开.~/.zshrc文件，大概在第8行，找到ZSH_THEME变量，更改这个变量的值就行。（可供选择的值在.oh-my.zsh/themes/ 文件夹下)</p>
+<p>##三.配置vim<br>前面我们给iTerm2配置了solarized颜色。现在我们给vim也配上。<br><img src="http://upload-images.jianshu.io/upload_images/2745695-fff8ad7fe296f214.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pic5.png"><br>找到在solarized官网上下载的文件，找到子目录下的solarized.vim文件。拷贝到~/.vim/color目录下 或者~/.vim/目录下。<br><img src="http://upload-images.jianshu.io/upload_images/2745695-2097aba528a83ae0.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="pic6.png"><br>打开vim的配置文件  ~/.vimrc 加上一句 colorscheme solarized（如果有colorscheme这一项，就将它后面的值改成colorscheme）</p>
+<p>##四. 总结<br>略</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Testing/" rel="tag">#Testing</a>
+          
+            <a href="/tags/Another-Tag/" rel="tag">#Another Tag</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/18/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/18/mobile/" rel="prev" title="Python编写手机归属地查询程序">
+                Python编写手机归属地查询程序 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/18/iterm.vim.zsh/"
+           data-title="iTerm2 vim zshell 配置" data-url="http://yoursite.com/2016/08/18/iterm.vim.zsh/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/head.jpg"
+               alt="申宝勇" />
+          <p class="site-author-name" itemprop="name">申宝勇</p>
+          <p class="site-description motion-element" itemprop="description"></p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/archives">
+              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">1</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="http://github.com/shenbaoyong" target="_blank" title="Github">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  Github
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-iTerm2与Terminal"><span class="nav-number">1.</span> <span class="nav-text">一. iTerm2与Terminal</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#例如"><span class="nav-number">1.0.1.</span> <span class="nav-text">例如</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#下载方式"><span class="nav-number">1.0.1.1.</span> <span class="nav-text">下载方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#给iTerm2配色"><span class="nav-number">1.0.1.2.</span> <span class="nav-text">给iTerm2配色</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-zshell与其它shell"><span class="nav-number">2.</span> <span class="nav-text">二. zshell与其它shell</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-执行cat-etc-shells-命令，列出系统支持的shell种类"><span class="nav-number">2.0.0.0.1.</span> <span class="nav-text">1. 执行cat /etc/shells  命令，列出系统支持的shell种类</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-执行echo-SHELL-命令，列出系统当前使用的shell"><span class="nav-number">2.0.0.0.2.</span> <span class="nav-text">2. 执行echo $SHELL 命令，列出系统当前使用的shell</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-执行chsh命令更改shell"><span class="nav-number">2.0.0.0.3.</span> <span class="nav-text">3. 执行chsh命令更改shell</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#4-zshell优点举例"><span class="nav-number">2.0.0.0.4.</span> <span class="nav-text">4.zshell优点举例</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#5-配置zshell"><span class="nav-number">2.0.0.0.5.</span> <span class="nav-text">5.配置zshell</span></a></li></ol></li></ol></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">申宝勇</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"shenbaoyongcom"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    <script src="/vendors/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
